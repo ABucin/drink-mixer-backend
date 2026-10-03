@@ -1,3 +1,21 @@
 spring:
   application:
     name: drink-mixer
+  datasource:
+    # 1. Database Connection Settings
+    url: jdbc:mysql://localhost:3306/drink_mixer_db?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+    username: 'andreib'
+    password: '!@AndrewB1506'
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    # 2. JPA & Hibernate Behavior
+    # 'update' automatically builds/modifies tables based on your Java @Entity classes
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.MySQLDialect
+  # 3. Development Helpers (Optional)
+  # Prints generated SQL to your console log terminal
+    show-sql: true
+  properties:
+    hibernate:
+      format_sql: true
