@@ -1,8 +1,10 @@
 package io.abucin.drinkmixer.repository;
 
-import io.abucin.drinkmixer.drinks.Drink;
+import io.abucin.drinkmixer.entity.Drink;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface IDrinkRepository extends JpaRepository<Drink, Long> {
+import java.util.List;
 
+public interface IDrinkRepository extends JpaRepository<Drink, Long> {
+    List<Drink> findByNameStartingWith(String name);
 }

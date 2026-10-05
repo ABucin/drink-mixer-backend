@@ -1,5 +1,6 @@
-package io.abucin.drinkmixer.drinks;
+package io.abucin.drinkmixer.controller;
 
+import io.abucin.drinkmixer.entity.Drink;
 import io.abucin.drinkmixer.repository.IDrinkRepository;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,8 +31,8 @@ public class DrinkController {
     }
 
     @GetMapping("/drinks")
-    public List<Drink> drinks() {
-        return this.repository.findAll();
+    public List<Drink> drinks(@RequestParam(required = false, defaultValue = "") String name) {
+        return this.repository.findByNameStartingWith(name);
     }
 
     @PostMapping("/drinks")

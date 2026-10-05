@@ -1,15 +1,14 @@
-package io.abucin.drinkmixer.drinks;
-
+package io.abucin.drinkmixer.entity;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 
 @Entity
-@Table(name = "drinks")
-public class Drink {
+@Table(name = "ingredients")
+public class Ingredient {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
     @NotBlank(message = "Name is mandatory")
     private String name;
 
